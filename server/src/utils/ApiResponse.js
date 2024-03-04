@@ -3,7 +3,7 @@ class ApiResponse {
     this.status = status;
     this.message = message;
     this.data = data;
-    this.success = statusCode < 400; // if status code is less than 400 then success is "true" a boolean return
+    this.success = status < 400; // if status code is less than 400 then success is "true" a boolean return
   }
 }
 

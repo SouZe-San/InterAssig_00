@@ -8,12 +8,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
     lowercase: true,
     trim: true,
+    unique: true,
   },
   fullName: {
     type: String,
@@ -22,6 +24,14 @@ const userSchema = new Schema({
   },
   password: { type: String, required: [true, "Password is required"] },
 });
+
+
+userSchema.pre("save", async function (next) {
+    if(!this.isModified("password")) return next();
+
+    this.password = await bcrypt.hash(this.password, 10)
+    next()
+})
 
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);

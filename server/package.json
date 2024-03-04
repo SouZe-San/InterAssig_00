@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "go"
@@ -20,7 +21,9 @@
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.2.0",
+    "mongoose": "^8.2.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.0"
   }
 }
