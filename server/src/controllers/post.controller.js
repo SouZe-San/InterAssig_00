@@ -1,25 +1,27 @@
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Post } from "../models/post.model.js";
-import { posts } from "../../100posts.js";
 // insert a new post
-
-const insertPost = async (req, res) => {
+let skipCount = 0;
+const getPosts = async (_req, res) => {
   try {
-    for (const post of posts) {
-      const newPost = await Post.create(post);
-      const dbPost = await Post.findById(newPost._id).select("-body -username");
-      if (!dbPost) {
-        console.log("Error while inserting the post");
-        throw new ApiError(500, "Something went wrong while inserting the post");
-      }
-    }
+    // Use Mongoose to find the next 10 posts based on skipCount
+    const posts = await Post.find().skip(skipCount).limit(10);
 
-    res.status(201).json({ message: "User signed up successfully" });
+    if (posts.length === 0) {
+      // If no more data, send an empty message
+      return res.status(404).json(new ApiResponse(409, "No more posts available", {}));
+    } else {
+      // Increment skipCount for the next request
+      skipCount += 10;
+
+      // Send the posts as a response
+      res.status(201).json(new ApiResponse(200, "10 Post Send Successfully Left", posts));
+    }
   } catch (error) {
-    console.log("error from insertPost: ", error);
+    console.log("error from getPosts: ", error);
     res.status(500).json({ error: "Something went Wrong in Server" });
   }
 };
 
-export { insertPost };
+export { getPosts };
