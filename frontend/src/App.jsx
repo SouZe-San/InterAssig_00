@@ -1,10 +1,17 @@
+import AllRoutes from "./Allroutes";
 import "./App.css";
-
+import NavBar from "./components/navigationBar/NavBar";
+import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
-    <>
-      <h1>I am Back</h1>
-    </>
+    <Router>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <AllRoutes />
+      </main>
+    </Router>
   );
 }
 
