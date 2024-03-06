@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "CenterDisplay";
+  src: url("../src/assets/fonts/CentralDisplayDemoExpanded-w1ql3.woff") format("woff");
+}
+@font-face {
+  font-family: "Romance";
+  src: url("../src/assets/fonts/RomanceLogicDemo-Wy8BE.woff") format("woff");
+}
+@font-face {
+  font-family: "NeueMachina-Regular";
+  src: url("../src/assets/fonts/NeueMachina-Regular.woff") format("woff");
+}
+
+.bgBlur {
+  background: url("./assets/bg/noisy-texture-300x300-o5-d10-c-18181a-t1.png") center center fixed,
+    #0a0a0a;
+  /* 0C0C0C */
+  backdrop-filter: blur(1rem);
+}

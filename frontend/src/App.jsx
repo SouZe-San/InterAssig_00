@@ -4,14 +4,16 @@ import NavBar from "./components/navigationBar/NavBar";
 import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
-    <Router>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <AllRoutes />
-      </main>
-    </Router>
+    <>
+      <Router>
+        <header className="w-screen">
+          <NavBar />
+        </header>
+        <main>
+          <AllRoutes />
+        </main>
+      </Router>
+    </>
   );
 }
 

@@ -1,0 +1,14 @@
+.top_nav {
+    padding: 0rem 3rem;
+    margin: 1rem auto;
+    position: absolute;
+    z-index: 3;
+    height: var(--nav-height);
+
+    .logo {
+        font-family: "Romance", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+
+    }
+}

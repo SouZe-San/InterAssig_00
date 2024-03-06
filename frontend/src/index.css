@@ -9,8 +9,12 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #13111c;
+  /* background-color: #13111c; */
+
   /* background-color: #242424; */
+
+  --nav-height: 4rem;
+  --scroll-border: #ffffff3b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,6 +26,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 100vh;
+  background: #141414;
+  width: 100vw;
   overflow-x: hidden;
 }
