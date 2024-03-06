@@ -1,0 +1,61 @@
+.card {
+    // height: 10rem;
+    aspect-ratio: 13/8;
+    border: 1px solid #e0e0e025;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+    background: #2323235e;
+    transition: background 0.27s ease-in-out;
+
+    &:hover {
+        background: #2f2f2f;
+    }
+
+    .postAccount {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 1rem;
+            font-family: "GalleryModern", sans-serif;
+        }
+
+        .user-icon {
+            width: 3rem;
+            aspect-ratio: 1;
+            background: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+
+            img {
+                width: 1.5rem;
+            }
+        }
+    }
+
+    .card-body {
+
+        height: 100%;
+
+        color: #ffffff;
+        font-family: "NeueMachina-Regular";
+
+        .card-title {
+            font-size: 2.5rem;
+
+            line-height: 2.5rem;
+
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #dedede;
+        }
+    }
+
+}

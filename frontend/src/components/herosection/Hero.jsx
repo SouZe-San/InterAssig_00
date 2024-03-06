@@ -13,7 +13,7 @@ const Hero = () => {
           <span className="ml-16"></span>We Are
         </h1>
         <h1 className="text-8xl font-bold">
-          Here to Show Others <span className="special_word">thoughts </span>
+          Here to Show Others <span className="special_word">Thoughts </span>
         </h1>
       </div>
 

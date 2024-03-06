@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "CenterDisplay";
-  src: url("../src/assets/fonts/CentralDisplayDemoExpanded-w1ql3.woff") format("woff");
+  font-family: "GalleryModern";
+  src: url("../src/assets/fonts/GalleryModern.woff") format("woff");
 }
 @font-face {
   font-family: "Romance";
@@ -16,4 +16,8 @@
     #0a0a0a;
   /* 0C0C0C */
   backdrop-filter: blur(1rem);
+}
+
+.special_word {
+  font-family: "Romance", sans-serif;
 }
