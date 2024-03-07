@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import "./hero_style.scss";
 import ScrollBtn from "./ScrollBtn";
 const Hero = () => {

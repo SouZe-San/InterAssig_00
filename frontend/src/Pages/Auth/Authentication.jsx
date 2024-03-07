@@ -3,7 +3,7 @@ import InputBlock from "../../components/Auth/InputBlock";
 
 import "./auth_style.scss";
 const Authentication = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <div>
       <div className="middle_floatDiv">

@@ -16,7 +16,9 @@ const getPosts = async (_req, res) => {
       skipCount += 10;
 
       // Send the posts as a response
-      res.status(201).json(new ApiResponse(200, "10 Post Send Successfully Left", posts));
+      res
+        .status(201)
+        .json(new ApiResponse(200, `10 Post Send Successfully Left ${skipCount}`, posts));
     }
   } catch (error) {
     console.log("error from getPosts: ", error);

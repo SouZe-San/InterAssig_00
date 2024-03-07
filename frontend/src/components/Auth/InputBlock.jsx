@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/userAuth.hook";
+import { logIn, register } from "../../api/axios";
 
 const InputBlock = ({ isLogin, setIsLogin }) => {
   const [name, setName] = useState("");
@@ -7,6 +10,11 @@ const InputBlock = ({ isLogin, setIsLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isHide, setIsHide] = useState(true);
+
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const pass = document.getElementById("pass");
     if (!isHide) {
@@ -16,12 +24,54 @@ const InputBlock = ({ isLogin, setIsLogin }) => {
     }
   }, [isHide]);
 
-  const OnSubmit = (e) => {
+  const OnFormSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
-      console.log("Log In");
+      const userData = {
+        username: userName,
+        email,
+        password,
+      };
+      try {
+        const { data } = await logIn(userData);
+        const { loggedInUser, accessToken } = data.data;
+        setAuth({ loggedInUser, accessToken });
+        navigate("/");
+      } catch (error) {
+        if (!error?.originalStatus) {
+          alert("No Server Response");
+        } else if (error.originalStatus === 400) {
+          alert("Missing Username or Password");
+        } else if (error.originalStatus === 401) {
+          alert("Unauthorized");
+        } else {
+          alert("Login Failed");
+        }
+        console.log("Log In failed !! ");
+      }
     } else {
       console.log("Registration");
+      const registerData = {
+        username: userName,
+        fullName: name,
+        email,
+        password,
+      };
+      try {
+        await register(registerData);
+        setIsLogin(!isLogin);
+      } catch (error) {
+        if (!error?.originalStatus) {
+          alert("No Server Response");
+        } else if (error.originalStatus === 400) {
+          alert("Missing Username or Password");
+        } else if (error.originalStatus === 401) {
+          alert("Unauthorized");
+        } else {
+          alert("Login Failed");
+        }
+        console.log("Log In failed !! ");
+      }
     }
   };
   return (
@@ -30,7 +80,7 @@ const InputBlock = ({ isLogin, setIsLogin }) => {
         <div className="headTag">
           <h1>{!isLogin ? "Registration" : "Log In"}</h1>
         </div>
-        <form action="registrationSerplet" method="post">
+        <form method="post">
           <div className="input-box">
             <input
               type="text"
@@ -125,7 +175,7 @@ const InputBlock = ({ isLogin, setIsLogin }) => {
               </>
             )}
           </div>
-          <button type="submit" className="submit_btn" onSubmit={OnSubmit}>
+          <button className="submit_btn" onClick={OnFormSubmit}>
             {isLogin ? "Log In" : "Submit"}
           </button>
         </form>
