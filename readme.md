@@ -15,25 +15,25 @@
 
 ## Installation
 
-    Here have 2 part of this project 
+Here have 2 part of this project 
         1. client / Frontend
-        2. server / Backend
-    So, you need to install both part of this project.clone the repository
+        2. server / Backen
+So, you need to install both part of this project.clone the repository
 
-    ## - First Run Server   
+ ## - First Run Server   
 
-        ```
+       
         cd ./server
         npm i
         npm run // development mode
         npm start // production mode
 
-        ```
-    ## - Second Run Client
+       
+  ## - Second Run Client
 
-        ```
+    
         cd ./client
         npm i
         npm run dev 
 
-        ```
+      
