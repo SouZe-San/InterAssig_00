@@ -1,4 +1,4 @@
-# POST VIWER
+# POST Vision
 
  This is a simple post viewer that allows you to view posts from a json file.
 

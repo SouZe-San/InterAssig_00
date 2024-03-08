@@ -1,6 +1,4 @@
-// import { getPost } from "../../../api";
 import PostItem from "../postItem/PostItem";
-// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./post_style.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -10,8 +8,7 @@ import NodataLoader from "../../Loader/NoDataLoader";
 
 const PostBlock = () => {
   const axiosPrivate = useAxiosPrivate();
-  // const navigate = useNavigate();
-  // const [total, setIsdataAvailable] = useState(0);
+
   const [posts, setPosts] = useState([]);
   const fetchPost = async () => {
     try {

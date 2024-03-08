@@ -21,7 +21,7 @@ export const verifyJWT = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.log("error from authMiddleware: ", error);
+    // console.log("error from authMiddleware: ", error);
     res.status(403).json({ error: "Invalid token" });
   }
 };

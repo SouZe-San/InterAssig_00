@@ -10,7 +10,7 @@ const generateAccess = async (userId) => {
 
     return { accessToken };
   } catch (error) {
-    // console.log("error from generateAccess: ", error);
+    console.log("error from generateAccess: ", error);
     throw new ApiError(500, "Something went wrong while generating access token");
   }
 };
@@ -51,7 +51,7 @@ const userRegister = async (req, res) => {
       .status(201)
       .json(new ApiResponse(200, "User registered Successfully", { data: "All Green !!" }));
   } catch (error) {
-    // console.log("error from register: ", error);
+    console.log("error from register: ", error);
     res.status(500).json({ error: "Something went Wrong in Server" });
   }
 };
@@ -92,7 +92,7 @@ const userSignIn = async (req, res) => {
       .cookie("accessToken", accessToken, options)
       .json(new ApiResponse(200, "User Logged In successfully", { loggedInUser, accessToken }));
   } catch (error) {
-    // console.log("error from Sign in : ", error);
+    console.log("error from Sign in : ", error);
     res.status(500).json({ error: "Something went Wrong in Server" });
   }
 };
